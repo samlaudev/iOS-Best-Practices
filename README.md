@@ -51,6 +51,7 @@
 
 <b id="code_style"></b>
 ##编码规范
+关于Objective-C的编码规范，请参考我翻译的[raywenderlich.com Objective-C编码规范](https://github.com/samlaudev/Objective-C-Coding-Style)
 
 <b id="iOS_open_source_lib"></b>
 ##iOS开源库
