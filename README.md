@@ -163,6 +163,25 @@ gem sources -a http://ruby.taobao.org/
 项目结构的参考链接：[iOS项目的目录结构和开发流程](http://limboy.me/ios/2013/09/23/build-ios-application.html)
 
 ###Assets资源
+[Asset catalogs](https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html)是管理你的项目所有可视化资源(visual assets)的最好方式。它们可以保存通用和特定设备(4寸iPhone，视网膜iPhone、iPad等)两种资源和会根据文件名自动提供合适的资源。
+
+####使用Bitmap Images
+Asset catalogs仅暴露图像集合的名字，在图像集合中抽离实际的文件名。这样话，很好地防止assset资源命名冲突，因为像`button_large@2x.png`这样的文件在它们的图像集合被划分命名空间。但当命名assets时遵循一些规则会更加方便。
+
+```
+IconCheckmarkHighlighted.png // Universal, non-Retina
+IconCheckmarkHighlighted@2x.png // Universal, Retina
+IconCheckmarkHighlighted~iphone.png // iPhone, non-Retina
+IconCheckmarkHighlighted@2x~iphone.png // iPhone, Retina
+IconCheckmarkHighlighted-568h@2x~iphone.png // iPhone, Retina, 4-inch
+IconCheckmarkHighlighted~ipad.png // iPad, non-Retina
+IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
+```
+
+修饰后缀`-568h`, `@2x`, `~iphone` 和 `~ipad`并不是必要的，但如果有了它之后，当拖动文件到图像集合会自动将它们放在合适的位置，因此，如果发生分配错误，这会很难发现它们。
+
+####使用 Vector Images
+你也可以把由设计师设计的原始[vector graphics (PDFs)](http://martiancraft.com/blog/2014/09/vector-images-xcode6/)添加到asset catalogs，然后Xcode会自动生成bitmaps。这样会减少工程的复杂性(管理更少的文件)。
 
 <b id="iOS_architecture"></b>
 ##iOS架构
