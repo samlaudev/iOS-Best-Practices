@@ -4,6 +4,7 @@
 ##目录
 * [初始化项目](#setup_project)
 * [iOS架构](#iOS_architecture)
+* [API设计](#api_design)
 * [编码规范](#code_style)
 * [iOS开源库](#iOS_open_source_lib)
 * [自动化构建](#build_automation)
@@ -78,11 +79,98 @@ gem sources -a http://ruby.taobao.org/
 * 安装好第三方库之后，关闭Xcode，然后打开`.xcworkspace`而不是`.xcproject`文件，然后引入对应第三方库的头文件，你就可以使用第三方库了。
 
 ###项目目录结构
+为了组织目录里面的上百个源代码文件，最好的方式就是根据你的架构来设置目录结构。例如，你可以采用以下目录结构：
+	
+    ├─ AppDelegate
+    ├─ General
+    ├─ Macro			
+    ├─ Sections
+    ├─ Helpers
+    ├─ Vendor
+    ├─ Resources
+   
+* ####AppDelegate
+这个目录主要存放AppDelegate.h(.m)文件，是整个app的入口文件，所以单独拿出来。
+
+* ####General
+这个目录放会被重用的Views、Controllers、Categories和DataSources等。里面大概是这样：
+
+ ```
+ General
+     |- Cell
+        |- ELMBaseCell
+        ...
+     |- Views
+        |- ELMScollView
+        |- ELMPullToRefresh
+        ...
+     |- Controllers
+        |- ELMBaseViewController
+        ...
+     |- Categories
+        |- UIViewController+Sizzle
+        |- UIImageView+Downloader
+        ...
+     |- DataSources
+        |- ArrayDataSource
+        ...
+ ```
+这里的`ELM`是项目的首字母缩写
+
+* ####Macro
+这个目录下放了整个app会用到的宏定义，里面大概是这样：
+
+ ```
+ Macro
+     |- AppMacro.h
+     |- NotificationMacro.h
+     |- VendorMacro.h
+     |- UtilsMacro.h
+     ...
+ ```
+如果有新的类型的宏定义，可以再新建一个相关的Macro.h。
+
+* ####Sections
+这个目录下面的文件对应的是app的具体单元，如导航、瀑布流等等。里面大概是这样：
+
+ ```
+ Sections
+     |- Menu
+     |- Setting
+     |- Collection
+     ...
+ ```
+ 而每个具体单元对应存放几个部分`View`, `Controller`, `ViewModel`, `Model`, `Network`的类。
+ 
+* ####Helpers
+这个目录放一些帮助类，文件名与功能挂钩。里面大概是这样：
+
+ ```
+ Helpers
+     |- ELMShareHelper
+     |- ELMHelper
+     |- ELMEmotionHelper
+     ...
+ ```
+ 帮助类的主要作用是帮助Controller瘦身，也可以提供一定程度的复用。
+
+* ####Vendors
+这个目录放第三方的类库/SDK，如UMeng、WeiboSDK、WeixinSDK等等。
+
+* ####Resources
+这个目录下放的是app会用到的一些资源，例如声音、数据，但**图片**存放在`Images.xcassets`目录。
+
+项目结构的参考链接：[iOS项目的目录结构和开发流程](http://limboy.me/ios/2013/09/23/build-ios-application.html)
 
 ###Assets资源
 
 <b id="iOS_architecture"></b>
 ##iOS架构
+
+<b id="api_design"></b>
+##API设计
+###面向对象设计原则
+###设计模式
 
 <b id="code_style"></b>
 ##编码规范
