@@ -1,4 +1,4 @@
-# iOS-Best-Practices
+# iOS Best Practices
 这里总结一下iOS最佳实践，主要参考Futurice developers的文章[iOS Good Practices](https://github.com/futurice/ios-good-practices)，同时加上了一些自己的理解
 
 ##目录
