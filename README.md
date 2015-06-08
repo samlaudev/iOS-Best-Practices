@@ -55,6 +55,13 @@
 
 <b id="iOS_open_source_lib"></b>
 ##iOS开源库
+* [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+* [Mantle](https://github.com/Mantle/Mantle)
+* [Masonry](https://github.com/SnapKit/Masonry)
+* [Classy](https://github.com/cloudkite/Classy)
+* [ClassyLiveLayout](https://github.com/olegam/ClassyLiveLayout)
+* [Kiwi](https://github.com/kiwi-bdd/Kiwi)
 
 <b id="build_automation"></b>
 ##自动化构建
