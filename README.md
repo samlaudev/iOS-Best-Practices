@@ -2,9 +2,14 @@
 这里总结一下iOS最佳实践，主要参考Futurice developers的文章[iOS Good Practices](https://github.com/futurice/ios-good-practices)，同时加上了一些自己的理解
 
 ##目录
-* 初始化项目
+* [初始化项目](#setup_project)
+* [iOS架构](#iOS_architecture)
+* [编码规范](#code_style)
+* [iOS开源库](#iOS_open_source_lib)
+* [自动化构建](#build_automation)
+* [可执行文件瘦身](#skim_executable_files)
 
-
+<b id="setup_project"></b>
 ##初始化项目
 ###UI采用Interface Builder还是手写代码
 当开始一个iOS项目时，一个常见的问题就是编写所有的views是采用手写代码的方式还是使用Interface Builder的Storyboard或XIB文件。两种方式都可以实现相同UI效果，但几点需要考虑：
@@ -41,6 +46,22 @@
 
 ###Assets资源
 
-##自动化构建
+<b id="iOS_architecture"></b>
+##iOS架构
 
-##iOS可执行文件瘦身
+<b id="code_style"></b>
+##编码规范
+
+<b id="iOS_open_source_lib"></b>
+##iOS开源库
+
+<b id="build_automation"></b>
+##自动化构建
+###构建配置
+
+###分析
+
+###部署配置
+
+<b id="skim_executable_files"></b>
+##可执行文件瘦身
