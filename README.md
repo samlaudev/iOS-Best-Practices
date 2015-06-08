@@ -40,7 +40,42 @@
 
 除了配置build settings之外，你还可以通过工具[Faux Pas](http://fauxpasapp.com/)来检测静态错误。它通过分析你代码库，然后查找出你意想不到的问题。在上架任何iOS或Mac的app之前使用它吧。
 
-###使用Cocoapods管理库
+###使用CocoaPods管理库
+如果你打算引入额外的依赖(例如，第三方库)到你工程，[CocoaPods](http://www.cocoapods.org/)提供一种容易和快速的集成方式。下面简单介绍它的安装和使用
+
+####安装CocoaPods
+使用以下命令就能安装**CocoaPods**：
+
+```
+sudo gem install cocoapods
+```
+输入上述命令可能很久都没响应，因为CocoaPods也被墙了。所以使用淘宝的镜像会快不少，
+
+```
+gem sources --remove https://rubygems.org/
+gem sources -a http://ruby.taobao.org/
+```
+
+####使用CocoaPods
+* 使用`pod search`来搜索你需要安装的库。例如，你想安装`mantle`这个iOS库，使用这个命令来搜索：`pod search mantle`，显示以下结果：
+![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/pod-search.png)
+红色圈住的内容就是安装库时`Podfile`文件需要的配置信息
+
+* 在工程目录下创建`Podfile`文件。这个文件主要保存依赖库信息，告诉CocoaPods去下载和管理哪些依赖库。创建之后，将`pod 'Mantle', '~> 1.5.4'`追加到Podfile文件
+![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Podfile-Demo.png)
+
+* 使用`pod install --verbose --no-repo-update`安装第三方库。
+
+* 如果在后来为了添加或删除第三库而修改`Podfile`文件，使用`pod update --verbose --no-repo-update`更新第三方库。
+
+* 由于安装和更新库的命令太长，使用shell的命名别名来简化，以后只需输入`pod_install`和`pod_update`即可安装和更新第三方库了
+
+ ```
+ #setup pod update alias name
+ alias pod_update='pod update --verbose --no-repo-update'
+ alias pod_install='pod install --verbose --no-repo-update'
+ ```
+* 安装好第三方库之后，关闭Xcode，然后打开`.xcworkspace`而不是`.xcproject`文件，然后引入对应第三方库的头文件，你就可以使用第三方库了。
 
 ###项目目录结构
 
