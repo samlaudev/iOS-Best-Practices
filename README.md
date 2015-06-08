@@ -22,10 +22,24 @@
 
 
 ###Git版本控制与.gitignore
-创建工程之后，一个好的步骤就是使用[git](https://git-scm.com)对工程进行版本控制并且有个合适的`.gitignore`文件。这个文件的作用主要是忽略不想要的文件(用户设置、临时文件等)，不将它们存放在仓库。幸运的是，Github都包含[Objective-C](https://github.com/github/gitignore/blob/master/Objective-C.gitignore) 和 [Swift](https://github.com/github/gitignore/blob/master/Swift.gitignore)两种。
+创建工程之后，一个好的步骤就是使用[git](https://git-scm.com)对工程进行版本控制并且有个合适的`.gitignore`文件。这个文件的作用主要是忽略不想要的文件(用户设置、临时文件等)，不将它们存放在仓库。幸运的是，Github都提供[Objective-C](https://github.com/github/gitignore/blob/master/Objective-C.gitignore) 和 [Swift](https://github.com/github/gitignore/blob/master/Swift.gitignore)两种模板。
 
 ###项目设置
+为了提高**代码质量**，你可以配置一些Build Settings：
+
+* 启用**Analyze During 'Build'**，在源文件运行Clang静态分析工具
+![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Enable-Build-Static-Analysis.png)
+
+* 启用**Treat Warnings as Errors**，它会导致所有的警告都当做错误来处理
+![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Treat-Warnings-As-Errors.png)
+
+###AdHoc和AppStore配置
 
 ###使用Cocoapods管理库
 
 ###项目目录结构
+
+
+##自动化构建
+
+##iOS可执行文件瘦身
