@@ -201,15 +201,15 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 [viper]: http://www.objc.io/issue-13/viper.html
 
 ### “Event”模式
+这里有一些通知其他对象的常用方法：
 
-These are the idiomatic ways for components to notify others about things:
+* __Delegation:__ _(一对一)_ Apple经常地使用它(有些人会说，太多了)。当想从model view执行回调时，你就会使用它。
+* __Callback blocks:__ _(一对一)_ 当相关代码段之间关系紧密时，它能使代码之间更加松耦合。当有很多的senders时，它比delegation更加容易扩展。
+* __Notification Center:__ _(一对多)_ 这是多个对象发送"事件"给多个观察者的最常用方式。耦合度非常低 - notifications甚至在没有引用dispatching object的情况下被全局观察。
+* __Key-Value Observing (KVO):__ _(一对多)_ 不需要被观察者显式地发送"事件"只要 _Key-Value Coding (KVC)_ 符合被观察的键(属性)。通常不推荐使用，因为它隐式的特性以及繁琐的API。
+* __Signals:__ _(一对多)_ [ReactiveCocoa]的核心就是通过提供一些[callback hell][elm-escape-from-callback-hell]，允许将你和核心内容链接和组合.
 
-* __Delegation:__ _(one-to-one)_ Apple uses this a lot (some would say, too much). Use when you want to communicate stuff back e.g. from a modal view.
-* __Callback blocks:__ _(one-to-one)_ Allow for a more loose coupling, while keeping related code sections close to each other. Also scales better than delegation when there are many senders.
-* __Notification Center:__ _(one-to-many)_ Possibly the most common way for objects to emit “events” to multiple observers. Very loose coupling — notifications can even be observed globally without reference to the dispatching object.
-* __Key-Value Observing (KVO):__ _(one-to-many)_ Does not require the observed object to explicitly “emit events” as long as it is _Key-Value Coding (KVC)_ compliant for the observed keys (properties). Usually not recommended due to its implicit nature and the cumbersome standard library API.
-* __Signals:__ _(one-to-many)_ The centerpiece of [ReactiveCocoa][reactivecocoa-github], they allow chaining and combining to your heart's content, thereby offering a way out of [callback hell][elm-escape-from-callback-hell].
-
+[ReactiveCocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 [elm-escape-from-callback-hell]: http://elm-lang.org/learn/Escape-from-Callback-Hell.elm
 
 ### Models
