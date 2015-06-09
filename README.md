@@ -5,6 +5,7 @@
 * [初始化项目](#setup_project)
 * [iOS架构](#iOS_architecture)
 * [API设计](#api_design)
+* [高质量代码](#high_quality_code)
 * [编码规范](#code_style)
 * [iOS开源库](#iOS_open_source_lib)
 * [自动化构建](#build_automation)
@@ -235,10 +236,21 @@ Use dependency injection, i.e. pass any required objects in as parameters, inste
 + [[FooDetailsViewController alloc] initWithFoo:(Foo *)foo];
 ```
 
+####代码结构规范
+
+
 <b id="api_design"></b>
 ##API设计
 ###面向对象设计原则
 ###设计模式
+
+<b id="high_quality_code"></b>
+##高质量代码
+###简洁性
+###易读性
+###复用性
+###可测试性
+###健壮性
 
 <b id="code_style"></b>
 ##编码规范
@@ -247,6 +259,7 @@ Use dependency injection, i.e. pass any required objects in as parameters, inste
 <b id="iOS_open_source_lib"></b>
 ##iOS开源库
 * [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
+* [Aspects](https://github.com/steipete/Aspects)
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
 * [Mantle](https://github.com/Mantle/Mantle)
 * [Masonry](https://github.com/SnapKit/Masonry)
