@@ -185,6 +185,55 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 <b id="iOS_architecture"></b>
 ##iOS架构
+* [Model-View-Controller-Store (MVCS)][mvcs]
+    * 这是Apple默认的架构(MVC)，通过引入**Store层**使它能够访问Model实例和处理网络请求、缓存等
+    * 每个Store对象暴露给view controller一个`RACSignal`对象或一个`void`返回值的自定义completion block方法
+* [Model-View-ViewModel (MVVM)][mvvm]
+    * 出于"重量级的view controllers": MVVM想将`UIViewController`子类那部分处理view之间状态和交互逻辑抽离到ViewModel，保持Controller的精简和让代码更加容易测试。
+    * 对于很多Cocoa开发者都是新的概念，但可以参考文章[cocoasamurai-rac]和[raywenderlich-mvvm]
+* [View-Interactor-Presenter-Entity-Routing (VIPER)][viper]
+      * 它是比较特殊的架构，适用于大型的项目，当感觉连MVVM都太混乱了和难以测试，你是时候了解这个架构了。
+
+[mvcs]: http://programmers.stackexchange.com/questions/184396/mvcs-model-view-controller-store
+[mvvm]: http://www.objc.io/issue-13/mvvm.html
+[cocoasamurai-rac]: http://cocoasamurai.blogspot.de/2013/03/basic-mvvm-with-reactivecocoa.html
+[raywenderlich-mvvm]: http://www.raywenderlich.com/74106/mvvm-tutorial-with-reactivecocoa-part-1
+[viper]: http://www.objc.io/issue-13/viper.html
+
+### “Event”模式
+
+These are the idiomatic ways for components to notify others about things:
+
+* __Delegation:__ _(one-to-one)_ Apple uses this a lot (some would say, too much). Use when you want to communicate stuff back e.g. from a modal view.
+* __Callback blocks:__ _(one-to-one)_ Allow for a more loose coupling, while keeping related code sections close to each other. Also scales better than delegation when there are many senders.
+* __Notification Center:__ _(one-to-many)_ Possibly the most common way for objects to emit “events” to multiple observers. Very loose coupling — notifications can even be observed globally without reference to the dispatching object.
+* __Key-Value Observing (KVO):__ _(one-to-many)_ Does not require the observed object to explicitly “emit events” as long as it is _Key-Value Coding (KVC)_ compliant for the observed keys (properties). Usually not recommended due to its implicit nature and the cumbersome standard library API.
+* __Signals:__ _(one-to-many)_ The centerpiece of [ReactiveCocoa][reactivecocoa-github], they allow chaining and combining to your heart's content, thereby offering a way out of [callback hell][elm-escape-from-callback-hell].
+
+[elm-escape-from-callback-hell]: http://elm-lang.org/learn/Escape-from-Callback-Hell.elm
+
+### Models
+
+Keep your models immutable, and use them to translate the remote API's semantics and types to your app. Github's [Mantle](https://github.com/Mantle/Mantle) is a good choice.
+
+### Views
+
+When laying out your views using Auto Layout, be sure to add the following to your class:
+
+    + (BOOL)requiresConstraintBasedLayout
+    {
+        return YES;
+    }
+
+Otherwise you may encounter strange bugs when the system doesn't call `-updateConstraints` as you would expect it to.
+
+### Controllers
+
+Use dependency injection, i.e. pass any required objects in as parameters, instead of keeping all state around in singletons. The latter is okay only if the state _really_ is global.
+
+```objective-c
++ [[FooDetailsViewController alloc] initWithFoo:(Foo *)foo];
+```
 
 <b id="api_design"></b>
 ##API设计
