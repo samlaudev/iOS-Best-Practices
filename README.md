@@ -241,8 +241,15 @@ Use dependency injection, i.e. pass any required objects in as parameters, inste
 
 <b id="api_design"></b>
 ##API设计
+###面向对象基本概念
+* 抽象
+* 封装
+* 继承
+* 多态
+
 ###面向对象设计原则
 ###设计模式
+###AOP
 
 <b id="high_quality_code"></b>
 ##高质量代码
