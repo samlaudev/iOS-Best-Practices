@@ -9,7 +9,7 @@
 * [编码规范](#code_style)
 * [iOS开源库](#iOS_open_source_lib)
 * [自动化构建](#build_automation)
-* [可执行文件瘦身](#skim_executable_files)
+* [优化App](#optimiaze_app)
 
 <b id="setup_project"></b>
 ##初始化项目
@@ -265,5 +265,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 ###部署配置
 
-<b id="skim_executable_files"></b>
-##可执行文件瘦身
+<b id="optimiaze_app"></b>
+##优化App
+
+###可执行文件瘦身
