@@ -231,6 +231,12 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 * 多态
 
 ###面向对象设计原则
+####单一职责原则(Single Responsibility Principle)
+####开放封闭原则(Open Close Principle)
+####Liskov替换原则(Liskov Substitution Principle)
+####接口隔离原则(Interface Segregation Principle)
+####依赖倒置原则(Dependency Inversion Principle)
+
 ###设计模式
 ###AOP
 
