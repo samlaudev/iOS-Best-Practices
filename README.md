@@ -227,15 +227,22 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ...
 
 #pragma mark - UIKit Delegate
-
+table view delgate methods
+scroll view degate methods
+...
 
 #pragma mark - Custom Delegate
+your custom delegate
 
 #pragma mark - Event Response
+- (void)someButtonDidPressed:(UIButton*)button
+...
 
 #pragma mark - Getters and Setters
+your custom setters and getters
 
 #pragma mark - Private Methods
+private methods
 
 ```
 
