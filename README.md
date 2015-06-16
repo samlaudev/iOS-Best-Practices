@@ -31,7 +31,7 @@
 ###Git版本控制与.gitignore
 创建工程之后，一个好的步骤就是使用[git](https://git-scm.com)对工程进行版本控制并且有个合适的`.gitignore`文件。这个文件的作用主要是忽略不想要的文件(用户设置、临时文件等)，不将它们存放在仓库。幸运的是，Github都提供[Objective-C](https://github.com/github/gitignore/blob/master/Objective-C.gitignore) 和 [Swift](https://github.com/github/gitignore/blob/master/Swift.gitignore)两种模板。
 
-###Build设置与Faux Pas
+###Build设置与Faux Pas/Infer
 为了提高**代码质量**，你可以配置一些Build Settings：
 
 * 启用**Analyze During 'Build'**，在源文件运行Clang静态分析工具
@@ -40,7 +40,7 @@
 * 启用**Treat Warnings as Errors**，它会导致所有的警告都当做错误来处理
 ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Treat-Warnings-As-Errors.png)
 
-除了配置build settings之外，你还可以通过工具[Faux Pas](http://fauxpasapp.com/)来检测静态错误。它通过分析你代码库，然后查找出你意想不到的问题。在上架任何iOS或Mac的app之前使用它吧。
+除了配置build settings之外，你还可以通过工具[Faux Pas](http://fauxpasapp.com/)或[Facebook Infer](https://github.com/facebook/infer)来检测静态错误。它通过分析你代码库，然后查找出你意想不到的问题。在上架任何iOS或Mac的app之前使用它吧。
 
 ###使用CocoaPods管理库
 如果你打算引入额外的依赖(例如，第三方库)到你工程，[CocoaPods](http://www.cocoapods.org/)提供一种容易和快速的集成方式。下面简单介绍它的安装和使用
@@ -220,7 +220,24 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ### Controllers
 
 ####代码结构规范
+```
+#pragma mark - View lifecycle
+- (void)viewDidLoad
+- (void)viewWillAppear
+...
 
+#pragma mark - UIKit Delegate
+
+
+#pragma mark - Custom Delegate
+
+#pragma mark - Event Response
+
+#pragma mark - Getters and Setters
+
+#pragma mark - Private Methods
+
+```
 
 <b id="api_design"></b>
 ##API设计
