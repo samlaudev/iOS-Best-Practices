@@ -8,6 +8,7 @@
 * [高质量代码](#high_quality_code)
 * [编码规范](#code_style)
 * [iOS开源库](#iOS_open_source_lib)
+* [iOS基本技能](#iOS_basic_skills)
 * [自动化构建](#build_automation)
 * [优化App](#optimiaze_app)
 
@@ -246,6 +247,12 @@ private methods
 
 ```
 
+####对controller"瘦身"
+
+###网络
+
+###数据存储
+
 <b id="api_design"></b>
 ##API设计
 ###面向对象基本概念
@@ -286,6 +293,14 @@ private methods
 * [Classy](https://github.com/cloudkite/Classy)
 * [ClassyLiveLayout](https://github.com/olegam/ClassyLiveLayout)
 * [Kiwi](https://github.com/kiwi-bdd/Kiwi)
+
+<b id="iOS_basic_skills"></b>
+##iOS基本技能
+###多线程管理
+###内存管理
+###AutoLayout适配不同屏幕
+###自定义复用控件
+###自定义动画
 
 <b id="build_automation"></b>
 ##自动化构建
