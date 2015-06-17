@@ -301,6 +301,9 @@ private methods
 ###AutoLayout适配不同屏幕
 ###自定义复用控件
 ###自定义动画
+###调试
+###崩溃报告分析
+###阅读开源项目
 
 <b id="build_automation"></b>
 ##自动化构建
