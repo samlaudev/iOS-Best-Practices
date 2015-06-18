@@ -293,6 +293,9 @@ private methods
 * [Classy](https://github.com/cloudkite/Classy)
 * [ClassyLiveLayout](https://github.com/olegam/ClassyLiveLayout)
 * [Kiwi](https://github.com/kiwi-bdd/Kiwi)
+* [FMDB](https://github.com/ccgus/fmdb)
+* [MTDates](https://github.com/mysterioustrousers/MTDates)
+* [SDWebImage](https://github.com/rs/SDWebImage)
 
 <b id="iOS_basic_skills"></b>
 ##iOS基本技能
