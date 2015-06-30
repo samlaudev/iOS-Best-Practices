@@ -262,6 +262,22 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 ###数据存储
 
+###iOS架构参考博客系列
+####[Casa Taloyum](http://casatwy.com)的iOS应用架构
+* [iOS应用架构谈 开篇](http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html)
+* [iOS应用架构谈 view层的组织和调用方案](http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html) 
+* [iOS应用架构谈 网络层设计方案](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html)
+* iOS应用架构谈 动态部署方案 
+* iOS应用架构谈 本地持久化方案
+
+####[Objc中国](http://objccn.io)的iOS架构
+* [MVVM 介绍](http://objccn.io/issue-13-1/)
+* [避免滥用单例](http://objccn.io/issue-13-2/)
+* [iOS 中的行为](http://objccn.io/issue-13-3/)
+* [子类](http://objccn.io/issue-13-4/)
+* [使用VIPER构建iOS应用](http://objccn.io/issue-13-5/)
+
+
 <b id="api_design"></b>
 ##API设计
 ###面向对象基本概念
