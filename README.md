@@ -295,6 +295,10 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 ###设计模式
 ###AOP
+[Aspects](https://github.com/steipete/Aspects)
+###依赖注入
+[dyci-main](https://github.com/DyCI/dyci-main)
+
 
 <b id="high_quality_code"></b>
 ##高质量代码
