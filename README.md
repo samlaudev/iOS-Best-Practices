@@ -294,6 +294,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ####依赖倒置原则(Dependency Inversion Principle)
 
 ###设计模式
+###重构
 ###AOP
 [Aspects](https://github.com/steipete/Aspects)
 ###依赖注入
