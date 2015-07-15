@@ -215,7 +215,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ####状态栏
 状态栏默认是黑色，如果你想改为**白色**，首先在项目设置General中将`Status Bar Style`设置为`Light`
  
- ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Project-General-AppIcons-Settings.png)
+ ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Info-Settings.png)
 
 然后在`Info.plist`文件中添加多一个字段`View controller-based status bar appearance`，并设置为`NO`
  
