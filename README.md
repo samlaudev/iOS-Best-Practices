@@ -202,9 +202,16 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 ####Bundle Display Name
 一般来说，Bundle Display Name跟工程名相同。例如， 你设置工程名为`MeiTuanWaiMai`，那么App显示Bundle Display Name就为`MeiTuanWaiMai`。
-
-
-
+ ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Bundle-Display-Name1.png)
+ 
+ 但一般我们都需要在`Info.plist`文件中添加一个`Bundle display name`字段来修改名字。例如，我修改为**美团外卖**。
+ 
+ ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Modify-Bundle-Display-Name.png)
+ 
+ 修改后效果如下：
+ 
+ ![](https://github.com/samlaudev/iOS-Best-Practices/raw/master/ScreenShots/Bundle-Display-Name2.png)
+ 
 ####
 
 
