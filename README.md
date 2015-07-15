@@ -185,6 +185,29 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ####使用 Vector Images
 你也可以把由设计师设计的原始[vector graphics (PDFs)](http://martiancraft.com/blog/2014/09/vector-images-xcode6/)添加到asset catalogs，然后Xcode会自动生成bitmaps。这样会减少工程的复杂性(管理更少的文件)。
 
+###杂项
+####App Icon和Launch Image
+* __App Icon:__ 选中工程目录下的`Images.xcassets`文件，向AppIcon中添加Spotlight、Settings和App Icons
+
+ ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/AppIcons.png)
+ （引用饿了么App图片）
+
+* __Launch Image:__ Xcode6之后，每次创建工程之后都会创建`LaunchScreen.xib`文件来显示启动画面，如果你想采用之前的Launch Image方式，你需要在工程设置中`Geneal`的**App Icons and Launch Images**中设置Launch Images Source.
+ ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Project-General-AppIcons-Settings.png)
+ 
+ 然后添加图片到LaunchImage中
+ 
+ ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/LaunchImages.png)
+ （引用饿了么App图片）
+
+####Bundle Display Name
+一般来说，Bundle Display Name跟工程名相同。例如， 你设置工程名为`MeiTuanWaiMai`，那么App显示Bundle Display Name就为`MeiTuanWaiMai`。
+
+
+
+####
+
+
 <b id="iOS_architecture"></b>
 ##iOS架构
 * [Model-View-Controller-Store (MVCS)][mvcs]
