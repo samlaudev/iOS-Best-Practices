@@ -351,6 +351,12 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ##编码规范
 关于Objective-C的编码规范，请参考我翻译的[raywenderlich.com Objective-C编码规范](https://github.com/samlaudev/Objective-C-Coding-Style)
 
+###注释
+####类注释
+####属性注释
+####方法注释
+####方法体注释
+
 <b id="iOS_open_source_lib"></b>
 ##iOS开源库
 * [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
@@ -389,3 +395,6 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ##优化App
 
 ###可执行文件瘦身
+###图片压缩工具
+* __[tinypng](https://tinypng.com):__ 是一个在线图片压缩工具，收费，不过压缩率比ImageOptim高6%左右，由于它没有mac客户端，可以通过Alfred的[Workflow](http://www.alfredforum.com/topic/1520-tiny-png-workflow-updated-to-v12/)来使用。
+* __[ImageOptim](https://imageoptim.com):__是一个mac客户端图片压缩工具，免费，压缩率比tinypng低
