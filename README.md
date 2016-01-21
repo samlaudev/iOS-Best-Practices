@@ -28,6 +28,9 @@
 * 在Xcode 6，自定义字体和UI元素最后都以可视化的方式在Storyboard上显示，当你设计最终外观时，给你更加好的灵感。
 * 从iOS 8开始，[Size Class](http://blog.futurice.com/adaptive-view-ios8)允许你为不同的类型的设备和屏幕来设计并且没有重复
 
+####AsyncDisplayKit:保持UI流畅和快速响应
+[AsyncDisplayKit](https://github.com/facebook/AsyncDisplayKit)是一个能让非常复杂的用户界面保持流畅和快速响应的iOS框架。作者[Scott Goodson](https://www.facebook.com/scottgoodson)在Facebook开发[Paper](https://www.facebook.com/paper) app时，由于它的用户界面和交互非常复杂，使用Paper过程中会出现卡顿，于是就开发出AsyncDisplayKit来解决UI的性能问题。同时它受[React](http://facebook.github.io/react/)启发，独立研发出性能比AutoLayout高的布局系统，详情可参考[AsyncDisplayKit 2.0: Intelligent User Interfaces - NSSpain 2015](https://www.youtube.com/watch?v=RY_X7l1g79Q)
+
 
 ###Git版本控制与.gitignore
 创建工程之后，一个好的步骤就是使用[git](https://git-scm.com)对工程进行版本控制并且有个合适的`.gitignore`文件。这个文件的作用主要是忽略不想要的文件(用户设置、临时文件等)，不将它们存放在仓库。幸运的是，Github都提供[Objective-C](https://github.com/github/gitignore/blob/master/Objective-C.gitignore) 和 [Swift](https://github.com/github/gitignore/blob/master/Swift.gitignore)两种模板。
