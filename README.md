@@ -308,8 +308,9 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 * [iOS应用架构谈 开篇](http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html)
 * [iOS应用架构谈 view层的组织和调用方案](http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html) 
 * [iOS应用架构谈 网络层设计方案](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html)
-* iOS应用架构谈 动态部署方案 
-* iOS应用架构谈 本地持久化方案
+* [iOS应用架构谈 动态部署方案](http://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html)
+* [iOS应用架构谈 本地持久化方案](http://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html)
+* [iOS应用架构谈 组件化方案](http://casatwy.com/iOS-Modulization.html)
 
 ####[Objc中国](http://objccn.io)的iOS架构
 * [MVVM 介绍](http://objccn.io/issue-13-1/)
@@ -401,3 +402,5 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 ###图片压缩工具
 * __[tinypng](https://tinypng.com):__ 是一个在线图片压缩工具，收费，不过压缩率比ImageOptim高6%左右，由于它没有mac客户端，可以通过Alfred的[Workflow](http://www.alfredforum.com/topic/1520-tiny-png-workflow-updated-to-v12/)来使用。
 * __[ImageOptim](https://imageoptim.com):__是一个mac客户端图片压缩工具，免费，压缩率比tinypng低
+
+
