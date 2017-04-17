@@ -1,7 +1,7 @@
 # iOS Best Practices
 这里总结一下iOS最佳实践，主要参考Futurice developers的文章[iOS Good Practices](https://github.com/futurice/ios-good-practices)，同时加上了一些自己的理解
 
-##目录
+## 目录
 * [初始化项目](#setup_project)
 * [iOS架构](#iOS_architecture)
 * [API设计](#api_design)
@@ -13,29 +13,29 @@
 * [优化App](#optimiaze_app)
 
 <b id="setup_project"></b>
-##初始化项目
-###UI采用Interface Builder还是手写代码
+## 初始化项目
+### UI采用Interface Builder还是手写代码
 当开始一个iOS项目时，一个常见的问题就是编写所有的views是采用手写代码的方式还是使用Interface Builder的Storyboard或XIB文件。两种方式都可以实现相同UI效果，但几点需要考虑：
 
-####为什么使用代码？
+#### 为什么使用代码？
 * 当多人协作开发时，由于Storyboard复杂的XML结构，它更容易发生版本冲突，这比手写代码的方式更难合并代码。
 * 手写代码更容易地结构化和重用views，因此使你的代码库保持[DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself)。
 * 所有的信息都在同一个地方。在Interface Builder中，你必须通过点击所有inspectors才能找到你想要的东西。
 
-####为什么使用Storyboard？
+#### 为什么使用Storyboard？
 * 为了更少的技术要求，Storyboard通过微调颜色或布局约束等方式来直接对项目做出贡献是一种很好的方式。但它需要设置工程并且需要时间来学习基础。
 * 由于你无需构建项目就可以预览一些变化，迭代速度就变得更快了
 * 在Xcode 6，自定义字体和UI元素最后都以可视化的方式在Storyboard上显示，当你设计最终外观时，给你更加好的灵感。
 * 从iOS 8开始，[Size Class](http://blog.futurice.com/adaptive-view-ios8)允许你为不同的类型的设备和屏幕来设计并且没有重复
 
-####AsyncDisplayKit:保持UI流畅和快速响应
+#### AsyncDisplayKit:保持UI流畅和快速响应
 [AsyncDisplayKit](https://github.com/facebook/AsyncDisplayKit)是一个能让非常复杂的用户界面保持流畅和快速响应的iOS框架。作者[Scott Goodson](https://www.facebook.com/scottgoodson)在Facebook开发[Paper](https://www.facebook.com/paper) app时，由于它的用户界面和交互非常复杂，使用Paper过程中会出现卡顿，于是就开发出AsyncDisplayKit来解决UI的性能问题。同时它受[React](http://facebook.github.io/react/)启发，独立研发出性能比AutoLayout高的布局系统，详情可参考[AsyncDisplayKit 2.0: Intelligent User Interfaces - NSSpain 2015](https://www.youtube.com/watch?v=RY_X7l1g79Q)
 
 
-###Git版本控制与.gitignore
+### Git版本控制与.gitignore
 创建工程之后，一个好的步骤就是使用[git](https://git-scm.com)对工程进行版本控制并且有个合适的`.gitignore`文件。这个文件的作用主要是忽略不想要的文件(用户设置、临时文件等)，不将它们存放在仓库。幸运的是，Github都提供[Objective-C](https://github.com/github/gitignore/blob/master/Objective-C.gitignore) 和 [Swift](https://github.com/github/gitignore/blob/master/Swift.gitignore)两种模板。
 
-###Build设置与Faux Pas/Infer
+### Build设置与Faux Pas/Infer
 为了提高**代码质量**，你可以配置一些Build Settings：
 
 * 启用**Analyze During 'Build'**，在源文件运行Clang静态分析工具
@@ -46,10 +46,10 @@
 
 除了配置build settings之外，你还可以通过工具[Faux Pas](http://fauxpasapp.com/)或[Facebook Infer](https://github.com/facebook/infer)来检测静态错误。它通过分析你代码库，然后查找出你意想不到的问题。在上架任何iOS或Mac的app之前使用它吧。
 
-###使用CocoaPods管理库
+### 使用CocoaPods管理库
 如果你打算引入额外的依赖(例如，第三方库)到你工程，[CocoaPods](http://www.cocoapods.org/)提供一种容易和快速的集成方式。下面简单介绍它的安装和使用
 
-####安装CocoaPods
+#### 安装CocoaPods
 使用以下命令就能安装**CocoaPods**：
 
 ```
@@ -62,7 +62,7 @@ gem sources --remove https://rubygems.org/
 gem sources -a http://ruby.taobao.org/
 ```
 
-####使用CocoaPods
+#### 使用CocoaPods
 * 使用`pod search`来搜索你需要安装的库。例如，你想安装`mantle`这个iOS库，使用这个命令来搜索：`pod search mantle`，显示以下结果：
 ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/pod-search.png)
 红色圈住的内容就是安装库时`Podfile`文件需要的配置信息
@@ -83,7 +83,7 @@ gem sources -a http://ruby.taobao.org/
  ```
 * 安装好第三方库之后，关闭Xcode，然后打开`.xcworkspace`而不是`.xcproject`文件，然后引入对应第三方库的头文件，你就可以使用第三方库了。
 
-###项目目录结构
+### 项目目录结构
 为了组织目录里面的上百个源代码文件，最好的方式就是根据你的架构来设置目录结构。例如，你可以采用以下目录结构：
 	
     ├─ AppDelegate
@@ -167,10 +167,10 @@ gem sources -a http://ruby.taobao.org/
 
 项目结构的参考链接：[iOS项目的目录结构和开发流程](http://limboy.me/ios/2013/09/23/build-ios-application.html)
 
-###Assets资源
+### Assets资源
 [Asset catalogs](https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html)是管理你的项目所有可视化资源(visual assets)的最好方式。它们可以保存通用和特定设备(4寸iPhone，视网膜iPhone、iPad等)两种资源和会根据文件名自动提供合适的资源。
 
-####使用Bitmap Images
+#### 使用Bitmap Images
 Asset catalogs仅暴露图像集合的名字，在图像集合中抽离实际的文件名。这样话，很好地防止assset资源命名冲突，因为像`button_large@2x.png`这样的文件在它们的图像集合被划分命名空间。但当命名assets时遵循一些规则会更加方便。
 
 ```
@@ -185,11 +185,11 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 修饰后缀`-568h`, `@2x`, `~iphone` 和 `~ipad`并不是必要的，但如果有了它之后，当拖动文件到图像集合会自动将它们放在合适的位置，因此，如果发生分配错误，这会很难发现它们。
 
-####使用 Vector Images
+#### 使用 Vector Images
 你也可以把由设计师设计的原始[vector graphics (PDFs)](http://martiancraft.com/blog/2014/09/vector-images-xcode6/)添加到asset catalogs，然后Xcode会自动生成bitmaps。这样会减少工程的复杂性(管理更少的文件)。
 
-###杂项
-####App Icon和Launch Image
+### 杂项
+#### App Icon和Launch Image
 * __App Icon:__ 选中工程目录下的`Images.xcassets`文件，向AppIcon中添加Spotlight、Settings和App Icons
 
  ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/AppIcons.png)
@@ -203,7 +203,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
  ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/LaunchImages.png)
  （引用饿了么App图片）
 
-####Bundle Display Name
+#### Bundle Display Name
 一般来说，Bundle Display Name跟工程名相同。例如， 你设置工程名为`MeiTuanWaiMai`，那么App显示Bundle Display Name就为`MeiTuanWaiMai`。
  ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Bundle-Display-Name1.png)
  
@@ -215,7 +215,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
  
  ![](https://github.com/samlaudev/iOS-Best-Practices/raw/master/ScreenShots/Bundle-Display-Name2.png)
  
-####状态栏
+#### 状态栏
 状态栏默认是黑色，如果你想改为**白色**，首先在项目设置General中将`Status Bar Style`设置为`Light`
  
  ![](https://raw.githubusercontent.com/samlaudev/iOS-Best-Practices/master/ScreenShots/Project-Settings-StatusBar-Light.png)
@@ -227,7 +227,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 
 <b id="iOS_architecture"></b>
-##iOS架构
+## iOS架构
 * [Model-View-Controller-Store (MVCS)][mvcs]
     * 这是Apple默认的架构(MVC)，通过引入**Store层**使它能够访问Model实例和处理网络请求、缓存等
     * 每个Store对象暴露给view controller一个`RACSignal`对象或一个`void`返回值的自定义completion block方法
@@ -261,7 +261,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 ### Controllers
 
-####代码结构规范
+#### 代码结构规范
 ```
 #pragma mark - Lifecycle
 - (instancetype)init {}
@@ -297,14 +297,14 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 ```
 
-####对controller"瘦身"
+#### 对controller"瘦身"
 
-###网络
+### 网络
 
-###数据存储
+### 数据存储
 
-###iOS架构参考博客系列
-####[Casa Taloyum](http://casatwy.com)的iOS应用架构
+### iOS架构参考博客系列
+#### [Casa Taloyum](http://casatwy.com)的iOS应用架构
 * [iOS应用架构谈 开篇](http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html)
 * [iOS应用架构谈 view层的组织和调用方案](http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html) 
 * [iOS应用架构谈 网络层设计方案](http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html)
@@ -312,7 +312,7 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 * [iOS应用架构谈 本地持久化方案](http://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html)
 * [iOS应用架构谈 组件化方案](http://casatwy.com/iOS-Modulization.html)
 
-####[Objc中国](http://objccn.io)的iOS架构
+#### [Objc中国](http://objccn.io)的iOS架构
 * [MVVM 介绍](http://objccn.io/issue-13-1/)
 * [避免滥用单例](http://objccn.io/issue-13-2/)
 * [iOS 中的行为](http://objccn.io/issue-13-3/)
@@ -321,48 +321,48 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 
 
 <b id="api_design"></b>
-##API设计
-###面向对象基本概念
+## API设计
+### 面向对象基本概念
 * 抽象
 * 封装
 * 继承
 * 多态
 
-###面向对象设计原则
-####单一职责原则(Single Responsibility Principle)
-####开放封闭原则(Open Close Principle)
-####Liskov替换原则(Liskov Substitution Principle)
-####接口隔离原则(Interface Segregation Principle)
-####依赖倒置原则(Dependency Inversion Principle)
+### 面向对象设计原则
+#### 单一职责原则(Single Responsibility Principle)
+#### 开放封闭原则(Open Close Principle)
+#### Liskov替换原则(Liskov Substitution Principle)
+#### 接口隔离原则(Interface Segregation Principle)
+#### 依赖倒置原则(Dependency Inversion Principle)
 
-###设计模式
-###重构
-###AOP
+### 设计模式
+### 重构
+### AOP
 [Aspects](https://github.com/steipete/Aspects)
-###依赖注入
+### 依赖注入
 [dyci-main](https://github.com/DyCI/dyci-main)
 
 
 <b id="high_quality_code"></b>
-##高质量代码
-###简洁性
-###易读性
-###复用性
-###可测试性
-###健壮性
+## 高质量代码
+### 简洁性
+### 易读性
+### 复用性
+### 可测试性
+### 健壮性
 
 <b id="code_style"></b>
-##编码规范
+## 编码规范
 关于Objective-C的编码规范，请参考我翻译的[raywenderlich.com Objective-C编码规范](https://github.com/samlaudev/Objective-C-Coding-Style)
 
-###注释
-####类注释
-####属性注释
-####方法注释
-####方法体注释
+### 注释
+#### 类注释
+#### 属性注释
+#### 方法注释
+#### 方法体注释
 
 <b id="iOS_open_source_lib"></b>
-##iOS开源库
+## iOS开源库
 * [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa)
 * [Aspects](https://github.com/steipete/Aspects)
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
@@ -376,30 +376,30 @@ IconCheckmarkHighlighted@2x~ipad.png // iPad, Retina
 * [SDWebImage](https://github.com/rs/SDWebImage)
 
 <b id="iOS_basic_skills"></b>
-##iOS基本技能
-###多线程管理
-###内存管理
-###AutoLayout适配不同屏幕
-###自定义复用控件
-###自定义动画
-###调试
-###崩溃报告分析
-###阅读开源项目
+## iOS基本技能
+### 多线程管理
+### 内存管理
+### AutoLayout适配不同屏幕
+### 自定义复用控件
+### 自定义动画
+### 调试
+### 崩溃报告分析
+### 阅读开源项目
 
 <b id="build_automation"></b>
-##自动化构建
-###优化编译速度
-###构建配置
+## 自动化构建
+### 优化编译速度
+### 构建配置
 
-###分析
+### 分析
 
-###部署配置
+### 部署配置
 
 <b id="optimiaze_app"></b>
-##优化App
+## 优化App
 
-###可执行文件瘦身
-###图片压缩工具
+### 可执行文件瘦身
+### 图片压缩工具
 * __[tinypng](https://tinypng.com):__ 是一个在线图片压缩工具，收费，不过压缩率比ImageOptim高6%左右，由于它没有mac客户端，可以通过Alfred的[Workflow](http://www.alfredforum.com/topic/1520-tiny-png-workflow-updated-to-v12/)来使用。
 * __[ImageOptim](https://imageoptim.com):__是一个mac客户端图片压缩工具，免费，压缩率比tinypng低
 
